@@ -1,0 +1,132 @@
+#%RAML 1.0
+---
+title: Record Service API
+baseUri: http://example.com
+version: v1
+
+/records:
+  /{id}:
+    get:
+      responses: 
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                  id: 1,
+                  name: "Record One",
+                  author: {
+                  },
+                  songs: [
+                    {
+                      id: 1,
+                      name: "Like a Rolling Stong"
+                      record: {
+                      }
+                    }
+                  ]
+                }
+/songs:
+  /{id}:
+    get:
+      responses: 
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                  id: 1,
+                  name: "Like a Rolling Stong",
+                  author: {
+                  },
+                  record: {
+                  }
+                }
+/authors:
+  /{id}:
+    get:
+      responses: 
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                  id: 1,
+                  name: "The Rolling Stones",
+                  records: [
+                  ]
+                }
+/users:
+  get:
+    responses: 
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                id: 1,
+                name: "Mr Foo",
+                created_at: "2020-12-30"
+              }
+/searches:
+  /{id}:
+    get:
+  get:
+  post:
+    queryParameters:
+      q:
+        displayName: Query String
+        type: string
+        description: Free form search text
+        example: "Rolling S"
+        required: true
+    responses: 
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                songs: [
+                  {
+                    id: 1,
+                    name: "Like a Rolling Stong",
+                    author: {
+                    },
+                    record: {
+                    }
+                  }
+                ],
+                authors: [
+                  {
+                    id: 1,
+                    name: "The Rolling Stones",
+                    records: [
+                    ]
+                  }
+                ],
+                records: [
+                  {
+                    id: 1,
+                    name: "Record One",
+                    author: {
+                    },
+                    songs: [
+                      {
+                        id: 1,
+                        name: "Like a Rolling Stong"
+                        record: {
+                        }
+                      }
+                    ]
+              }
+
+
+types: 
+  song: | 
+  song-short: | 
+  record: | 
+  record-short: | 
+  author: | 
+  record-short: | 
+  user: | 
+
